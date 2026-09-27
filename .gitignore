@@ -1,10 +1,13 @@
-node_modules
-dist
+node_modules/
+dist/
 .env
 .env.local
+.env.*
 .DS_Store
-.env.*.photo-fix-backup/
+.photo-fix-backup/
 .final-wrap-v2-backup/
 .build-cleanup-backup/
 src/src/
 src/public/
+*.tsbuildinfo
+.netlify/
