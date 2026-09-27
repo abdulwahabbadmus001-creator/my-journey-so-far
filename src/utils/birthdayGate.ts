@@ -28,10 +28,6 @@ function lagosDateParts(now: Date) {
 }
 
 export function getLaunchState(now = new Date()): LaunchState {
-  // TEMPORARY: force the full birthday experience for final mobile QA.
-  // Revert this line after the mobile test is complete.
-  if (true) return 'BIRTHDAY';
-
   const preview = import.meta.env.VITE_PREVIEW_MODE;
   if (preview === 'pre') return 'PRE_BIRTHDAY';
   if (preview === 'birthday') return 'BIRTHDAY';
