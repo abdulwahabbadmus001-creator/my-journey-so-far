@@ -1,0 +1,2127 @@
+/* ========================================================================== 
+   OCTOBER CHAPTER — SIGNATURE UI
+   A restrained editorial layer over the existing birthday experience.
+   Scoped to .chapter-shell so the admin and pre-birthday screens stay intact.
+   ========================================================================== */
+
+.chapter-shell {
+  --sig-paper: #f5f1e9;
+  --sig-paper-2: #ece6db;
+  --sig-paper-3: #ded5c8;
+  --sig-ink: #171614;
+  --sig-ink-soft: #5e5952;
+  --sig-night: #11110f;
+  --sig-night-2: #191814;
+  --sig-copper: #a96f45;
+  --sig-copper-soft: #c59670;
+  --sig-line: rgba(23, 22, 20, 0.14);
+  --sig-line-dark: rgba(255, 255, 255, 0.12);
+  --sig-serif: Georgia, "Times New Roman", serif;
+  --sig-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sig-gutter: max(22px, calc((100vw - 1320px) / 2));
+  min-height: 100vh;
+  overflow: clip;
+  color: var(--sig-ink);
+  background: var(--sig-paper);
+}
+
+.chapter-shell button,
+.chapter-shell a {
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   NAVIGATION
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .chapter-nav {
+  position: fixed;
+  z-index: 80;
+  top: 18px;
+  left: 50%;
+  width: min(1180px, calc(100vw - 36px));
+  min-height: 58px;
+  transform: translateX(-50%);
+  padding: 8px 10px 8px 12px;
+  color: var(--sig-ink);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  background: rgba(245, 241, 233, 0.82);
+  box-shadow: 0 10px 40px rgba(23, 18, 13, 0.08);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+.chapter-shell .chapter-brand {
+  gap: 10px;
+  color: var(--sig-ink);
+}
+
+.chapter-shell .chapter-brand > span {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(23, 22, 20, 0.34);
+  color: var(--sig-ink);
+  background: rgba(255, 255, 255, 0.36);
+  font: 750 0.62rem/1 var(--sig-sans);
+}
+
+.chapter-shell .chapter-brand small {
+  color: #3d3934;
+  font: 700 0.58rem/1 var(--sig-sans);
+  letter-spacing: 0.18em;
+}
+
+.chapter-shell .desktop-nav {
+  gap: 6px;
+}
+
+.chapter-shell .desktop-nav a {
+  padding: 10px 13px;
+  border-radius: 999px;
+  color: #5f5a53;
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.chapter-shell .desktop-nav a:hover {
+  color: var(--sig-ink);
+  background: rgba(23, 22, 20, 0.06);
+}
+
+.chapter-shell .nav-menu-button span {
+  background: var(--sig-ink);
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER RAIL
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .chapter-rail {
+  position: fixed;
+  z-index: 45;
+  left: 22px;
+  top: 50%;
+  display: grid;
+  gap: 14px;
+  transform: translateY(-50%);
+}
+
+.chapter-shell .chapter-rail a {
+  display: grid;
+  grid-template-columns: 22px 18px;
+  gap: 7px;
+  align-items: center;
+  color: #7d766d;
+  text-decoration: none;
+}
+
+.chapter-shell .chapter-rail span {
+  font: 700 0.47rem/1 var(--sig-sans);
+  letter-spacing: 0.08em;
+}
+
+.chapter-shell .chapter-rail i {
+  display: block;
+  width: 7px;
+  height: 1px;
+  background: currentColor;
+  transition: width 220ms ease, background 220ms ease;
+}
+
+.chapter-shell .chapter-rail a:hover {
+  color: var(--sig-copper);
+}
+
+.chapter-shell .chapter-rail a:hover i {
+  width: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   HERO — minimal celebration
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .chapter-hero,
+.chapter-shell .birthday-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) 80px;
+  align-items: center;
+  padding: 132px var(--sig-gutter) 72px;
+  color: #f6f0e7;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(169, 111, 69, 0.17), transparent 24%),
+    linear-gradient(125deg, #121210 0%, #181713 50%, #0d0d0c 100%);
+}
+
+.chapter-shell .chapter-hero::before {
+  content: "30";
+  position: absolute;
+  z-index: 0;
+  right: -1vw;
+  bottom: -7vw;
+  color: rgba(255, 255, 255, 0.025);
+  font: 400 clamp(18rem, 39vw, 44rem)/0.72 var(--sig-serif);
+  letter-spacing: -0.12em;
+  pointer-events: none;
+}
+
+.chapter-shell .chapter-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(to bottom, #000, transparent 84%);
+}
+
+.chapter-shell .hero-aura-one {
+  width: 34vw;
+  height: 34vw;
+  top: 2%;
+  right: 6%;
+  background: rgba(180, 120, 74, 0.09);
+}
+
+.chapter-shell .hero-aura-two {
+  width: 26vw;
+  height: 26vw;
+  left: 24%;
+  bottom: 4%;
+  background: rgba(201, 158, 111, 0.04);
+}
+
+.chapter-shell .hero-rule {
+  opacity: 0.4;
+}
+
+.chapter-shell .hero-edition {
+  position: relative;
+  z-index: 4;
+  align-self: center;
+  width: 92px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #a89f93;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.018);
+  backdrop-filter: blur(4px);
+}
+
+.chapter-shell .hero-edition span {
+  writing-mode: vertical-rl;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+
+.chapter-shell .hero-edition strong {
+  margin: 18px 0;
+  color: #d9b28f;
+  font: 400 4.8rem/0.8 var(--sig-serif);
+  letter-spacing: -0.07em;
+}
+
+.chapter-shell .hero-copy {
+  position: relative;
+  z-index: 5;
+  max-width: 1050px;
+  padding: 0 clamp(26px, 5vw, 84px);
+}
+
+.chapter-shell .birthday-badge {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: #c9a98f;
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.53rem;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+}
+
+.chapter-shell .birthday-badge i {
+  width: 26px;
+  height: 1px;
+  border-radius: 0;
+  background: rgba(201, 169, 143, 0.55);
+  box-shadow: none;
+}
+
+.chapter-shell .birthday-badge b {
+  color: #8f867c;
+  font-weight: 650;
+}
+
+.chapter-shell .section-label,
+.chapter-shell .section-index {
+  margin: 0 0 18px;
+  font: 800 0.58rem/1.2 var(--sig-sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .section-label {
+  color: #ae8a70;
+}
+
+.chapter-shell .section-index {
+  color: var(--sig-copper);
+}
+
+.chapter-shell .hero-copy h1 {
+  max-width: 850px;
+  margin: 0;
+  color: #f4eee5;
+  font: 400 clamp(4.6rem, 9.3vw, 9.2rem)/0.82 var(--sig-serif);
+  letter-spacing: -0.075em;
+  text-wrap: balance;
+}
+
+.chapter-shell .hero-name {
+  margin: 34px 0 0;
+  color: #d6b394;
+  font: 400 clamp(1.05rem, 1.6vw, 1.35rem)/1.2 var(--sig-serif);
+  letter-spacing: 0.015em;
+}
+
+.chapter-shell .hero-intro {
+  max-width: 590px;
+  margin: 16px 0 34px;
+  color: #989188;
+  font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+  line-height: 1.8;
+}
+
+.chapter-shell .hero-actions {
+  gap: 10px;
+}
+
+.chapter-shell .primary-link,
+.chapter-shell .hero-primary-button {
+  min-height: 50px;
+  padding: 0 18px;
+  border: 1px solid rgba(219, 181, 151, 0.32);
+  border-radius: 999px;
+  color: #f1e9df;
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.chapter-shell .primary-link:hover,
+.chapter-shell .hero-primary-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(219, 181, 151, 0.58);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.chapter-shell .hero-secondary-link {
+  padding: 14px 15px;
+  color: #969087;
+  font-size: 0.7rem;
+}
+
+.chapter-shell .hero-secondary-link:hover {
+  color: #eee6dc;
+}
+
+.chapter-shell .birthday-cheers {
+  margin-top: 42px;
+  color: #6f6962;
+}
+
+.chapter-shell .birthday-cheers p {
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+}
+
+.chapter-shell .birthday-cheers span {
+  color: #9b765c;
+}
+
+.chapter-shell .hero-scroll-note {
+  color: #5f5a54;
+}
+
+.chapter-shell .hero-scroll-note i {
+  height: 62px;
+  background: linear-gradient(#9c765e, transparent);
+}
+
+/* balloons remain — quieter and more sculptural */
+.chapter-shell .birthday-hero-balloon {
+  opacity: 0.26;
+  filter: saturate(0.55);
+  box-shadow:
+    inset -10px -12px 18px rgba(0, 0, 0, 0.16),
+    inset 8px 8px 14px rgba(255, 255, 255, 0.08);
+}
+
+.chapter-shell .birthday-confetti {
+  width: 4px;
+  height: 11px;
+  opacity: 0.24;
+}
+
+.chapter-shell .birthday-spark {
+  opacity: 0.28;
+}
+
+.chapter-shell .birthday-marquee {
+  color: #423a33;
+  border: 0;
+  border-bottom: 1px solid var(--sig-line);
+  background: #ded5c7;
+}
+
+.chapter-shell .birthday-marquee > div {
+  gap: 40px;
+  padding: 10px 0;
+}
+
+.chapter-shell .birthday-marquee span {
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.chapter-shell .birthday-marquee i {
+  color: #9e765d;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION RHYTHM
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .wishes-section,
+.chapter-shell .memories-section,
+.chapter-shell .journey-section,
+.chapter-shell .built-section,
+.chapter-shell .guestbook-section,
+.chapter-shell .gift-section,
+.chapter-shell .creator-section,
+.chapter-shell .gratitude-section {
+  padding-inline: var(--sig-gutter);
+}
+
+.chapter-shell .wishes-section,
+.chapter-shell .built-section,
+.chapter-shell .gift-section,
+.chapter-shell .gratitude-section {
+  padding-top: clamp(96px, 11vw, 160px);
+  padding-bottom: clamp(96px, 11vw, 160px);
+}
+
+.chapter-shell .memories-section,
+.chapter-shell .journey-section,
+.chapter-shell .guestbook-section {
+  padding-top: clamp(100px, 12vw, 170px);
+  padding-bottom: clamp(100px, 12vw, 170px);
+}
+
+.chapter-shell .section-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.42fr);
+  gap: clamp(42px, 8vw, 130px);
+  align-items: end;
+  margin-bottom: 58px;
+}
+
+.chapter-shell .section-heading-row h2,
+.chapter-shell .gift-copy h2,
+.chapter-shell .guestbook-copy h2 {
+  max-width: 900px;
+  margin: 0;
+  color: inherit;
+  font: 400 clamp(3.1rem, 5.9vw, 6rem)/0.9 var(--sig-serif);
+  letter-spacing: -0.058em;
+  text-wrap: balance;
+}
+
+.chapter-shell .section-note,
+.chapter-shell .built-intro,
+.chapter-shell .gift-copy > p:last-child,
+.chapter-shell .guestbook-copy > p:last-child {
+  color: var(--sig-ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+/* --------------------------------------------------------------------------
+   01 — WISHES
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .wishes-section {
+  position: relative;
+  background: var(--sig-paper);
+}
+
+.chapter-shell .wishes-section::before {
+  content: "01";
+  position: absolute;
+  top: 70px;
+  right: var(--sig-gutter);
+  color: rgba(23, 22, 20, 0.035);
+  font: 400 clamp(7rem, 15vw, 14rem)/1 var(--sig-serif);
+}
+
+.chapter-shell .wish-composer-card {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 32px 0 36px;
+  border-top: 1px solid var(--sig-ink);
+  border-bottom: 1px solid var(--sig-line);
+  background: transparent;
+}
+
+.chapter-shell .wish-quote-mark {
+  color: var(--sig-copper);
+  font: 400 4rem/1 var(--sig-serif);
+}
+
+.chapter-shell .wish-placeholder {
+  margin: 0;
+  font: 400 clamp(1.6rem, 2.5vw, 2.7rem)/1.1 var(--sig-serif);
+  letter-spacing: -0.02em;
+}
+
+.chapter-shell .wish-supporting {
+  color: #7e776e;
+}
+
+.chapter-shell .text-button {
+  min-width: 150px;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--sig-line);
+  border-radius: 999px;
+  color: var(--sig-ink);
+  background: transparent;
+  cursor: pointer;
+}
+
+.chapter-shell .text-button:hover {
+  color: #fff;
+  border-color: var(--sig-ink);
+  background: var(--sig-ink);
+}
+
+.chapter-shell .wish-preview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  gap: 12px;
+  margin-top: 46px;
+}
+
+.chapter-shell .wish-preview,
+.chapter-shell .wish-wall-mini article {
+  border: 1px solid var(--sig-line);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.chapter-shell .featured-wish {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(32px, 5vw, 62px);
+}
+
+.chapter-shell .featured-wish > span,
+.chapter-shell .wish-wall-mini article > span {
+  color: var(--sig-copper);
+  font: 800 0.52rem/1 var(--sig-sans);
+  letter-spacing: 0.18em;
+}
+
+.chapter-shell .featured-wish p {
+  max-width: 900px;
+  margin: 80px 0 50px;
+  color: #24211e;
+  font: 400 clamp(2rem, 3.6vw, 4rem)/1.05 var(--sig-serif);
+  letter-spacing: -0.035em;
+}
+
+.chapter-shell .featured-wish small,
+.chapter-shell .wish-wall-mini small {
+  color: #7b746c;
+}
+
+.chapter-shell .wish-wall-mini {
+  gap: 12px;
+}
+
+.chapter-shell .wish-wall-mini article {
+  min-height: 170px;
+  padding: 22px;
+}
+
+.chapter-shell .wish-wall-mini article p {
+  margin: 28px 0 20px;
+  font: 400 1.15rem/1.4 var(--sig-serif);
+}
+
+/* --------------------------------------------------------------------------
+   02 — MOMENTS
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .memories-section {
+  color: #f2ece3;
+  background: var(--sig-night);
+}
+
+.chapter-shell .memories-section .section-index,
+.chapter-shell .memories-section .section-heading-row .section-index {
+  color: #c28e6c;
+}
+
+.chapter-shell .memories-section .built-intro {
+  color: #827c74;
+}
+
+.chapter-shell .photo-story-grid {
+  gap: 10px;
+}
+
+.chapter-shell .photo-story-card {
+  border: 0;
+  border-radius: 2px;
+  background: #1c1a17;
+}
+
+.chapter-shell .photo-story-card img {
+  filter: grayscale(0.14) saturate(0.78) contrast(1.03);
+}
+
+.chapter-shell .photo-story-card:hover img {
+  transform: scale(1.025);
+  filter: grayscale(0) saturate(0.95) contrast(1.04);
+}
+
+.chapter-shell .photo-story-shade {
+  background: linear-gradient(180deg, transparent 18%, rgba(12, 11, 10, 0.12) 52%, rgba(12, 11, 10, 0.91) 100%);
+}
+
+.chapter-shell .photo-story-index {
+  top: 18px;
+  left: 18px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  font-size: 0.55rem;
+}
+
+.chapter-shell .photo-story-copy {
+  left: 26px;
+  right: 26px;
+  bottom: 25px;
+}
+
+.chapter-shell .photo-story-copy small {
+  color: #c8a184;
+  font-size: 0.55rem;
+  letter-spacing: 0.17em;
+}
+
+.chapter-shell .photo-story-copy h3 {
+  margin: 9px 0 8px;
+  font: 400 clamp(2.2rem, 4vw, 4.6rem)/0.95 var(--sig-serif);
+  letter-spacing: -0.045em;
+}
+
+.chapter-shell .photo-story-copy p {
+  max-width: 540px;
+  color: rgba(242, 236, 227, 0.68);
+}
+
+.chapter-shell .photo-story-copy b {
+  color: #e3d6ca;
+  font-size: 0.62rem;
+  font-weight: 650;
+}
+
+/* Placeholder moments before photos arrive */
+.chapter-shell .memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.chapter-shell .memory-card,
+.chapter-shell .memory-card-2,
+.chapter-shell .memory-card-3 {
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  border: 0;
+  color: #e8e0d6;
+  background: #171612;
+}
+
+.chapter-shell .memory-card > span {
+  color: #7b756d;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+}
+
+.chapter-shell .memory-placeholder-mark {
+  margin: auto;
+  color: #706a63;
+}
+
+.chapter-shell .memory-card h3 {
+  margin: 0 0 8px;
+  font: 400 1.7rem/1.05 var(--sig-serif);
+}
+
+.chapter-shell .memory-card p {
+  margin: 0;
+  color: #78726b;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   03 — GRATITUDE
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .gratitude-section {
+  position: relative;
+  color: var(--sig-ink);
+  background: #e8e0d4;
+}
+
+.chapter-shell .gratitude-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.chapter-shell .gratitude-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.45fr);
+  gap: clamp(50px, 8vw, 120px);
+  align-items: end;
+  max-width: none;
+  margin: 0 0 62px;
+}
+
+.chapter-shell .gratitude-eyebrow {
+  grid-column: 1 / -1;
+  margin: 0 0 -18px;
+  color: var(--sig-copper);
+  font: 800 0.58rem/1 var(--sig-sans);
+  letter-spacing: 0.22em;
+}
+
+.chapter-shell .gratitude-intro h2 {
+  margin: 0;
+  font: 400 clamp(3.2rem, 6vw, 6.4rem)/0.88 var(--sig-serif);
+  letter-spacing: -0.06em;
+}
+
+.chapter-shell .gratitude-intro h2 span {
+  display: block;
+  color: #5f554d;
+}
+
+.chapter-shell .gratitude-lead {
+  margin: 0;
+  color: #6d665e;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.chapter-shell .gratitude-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border-top: 1px solid rgba(23, 22, 20, 0.14);
+  border-left: 1px solid rgba(23, 22, 20, 0.14);
+  background: rgba(23, 22, 20, 0.13);
+}
+
+.chapter-shell .gratitude-card {
+  min-height: 320px;
+  padding: 30px;
+  border: 0;
+  border-right: 1px solid rgba(23, 22, 20, 0.14);
+  border-bottom: 1px solid rgba(23, 22, 20, 0.14);
+  border-radius: 0;
+  background: #e8e0d4;
+  box-shadow: none;
+}
+
+.chapter-shell .gratitude-card:hover {
+  transform: none;
+  background: #eee7dd;
+  box-shadow: none;
+}
+
+.chapter-shell .gratitude-card-top {
+  margin-bottom: 62px;
+}
+
+.chapter-shell .gratitude-number {
+  color: #8f725e;
+  font: 500 0.7rem/1 var(--sig-sans);
+}
+
+.chapter-shell .gratitude-line {
+  background: rgba(23, 22, 20, 0.13);
+}
+
+.chapter-shell .gratitude-subtitle {
+  color: #967159;
+  font-size: 0.54rem;
+  letter-spacing: 0.17em;
+}
+
+.chapter-shell .gratitude-card h3 {
+  margin: 0 0 18px;
+  font: 400 clamp(1.75rem, 2.5vw, 2.7rem)/1 var(--sig-serif);
+  letter-spacing: -0.03em;
+}
+
+.chapter-shell .gratitude-message {
+  color: #6c655d;
+  font-size: 0.86rem;
+  line-height: 1.72;
+}
+
+.chapter-shell .gratitude-ending {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 30px 70px;
+  max-width: none;
+  margin: 1px 0 0;
+  padding: clamp(48px, 7vw, 90px);
+  text-align: left;
+  border-radius: 0;
+  color: #eee6dc;
+  background: var(--sig-night);
+}
+
+.chapter-shell .gratitude-small {
+  margin: 4px 0 0;
+  color: #a98369;
+}
+
+.chapter-shell .gratitude-ending p {
+  max-width: 860px;
+  margin: 0;
+  color: rgba(238, 230, 220, 0.76);
+  font: 400 clamp(1.6rem, 3vw, 3.25rem)/1.22 var(--sig-serif);
+  letter-spacing: -0.03em;
+}
+
+.chapter-shell .gratitude-ending strong,
+.chapter-shell .gratitude-signature {
+  grid-column: 2;
+  max-width: 650px;
+  margin: 0;
+}
+
+.chapter-shell .gratitude-ending strong {
+  color: #bea18b;
+  font-weight: 500;
+}
+
+.chapter-shell .gratitude-signature {
+  color: #787169;
+}
+
+/* --------------------------------------------------------------------------
+   04 — JOURNEY
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .journey-section {
+  color: var(--sig-ink);
+  background: #f7f3ec;
+}
+
+.chapter-shell .journey-list {
+  border-top: 1px solid var(--sig-ink);
+}
+
+.chapter-shell .journey-row {
+  display: grid;
+  grid-template-columns: 70px minmax(220px, 0.65fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 80px);
+  align-items: baseline;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--sig-line);
+}
+
+.chapter-shell .journey-row > span {
+  color: #9d7b64;
+  font-size: 0.56rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.chapter-shell .journey-row h3 {
+  margin: 0;
+  font: 400 clamp(1.5rem, 2.3vw, 2.45rem)/1 var(--sig-serif);
+  letter-spacing: -0.025em;
+}
+
+.chapter-shell .journey-row p {
+  max-width: 620px;
+  margin: 0;
+  color: #716b63;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   05 — PROJECTS
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .built-section {
+  background: #e9e3d9;
+}
+
+.chapter-shell .project-summary {
+  display: grid;
+  grid-template-columns: 130px 130px 1fr;
+  gap: 1px;
+  margin: 0 0 64px;
+  background: rgba(23, 22, 20, 0.13);
+}
+
+.chapter-shell .project-summary article,
+.chapter-shell .project-summary > p {
+  min-height: 120px;
+  margin: 0;
+  padding: 18px;
+  border: 0;
+  background: #e9e3d9;
+}
+
+.chapter-shell .project-summary article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chapter-shell .project-summary strong {
+  font: 400 3.4rem/0.85 var(--sig-serif);
+  letter-spacing: -0.06em;
+}
+
+.chapter-shell .project-summary span {
+  color: #7e756b;
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.chapter-shell .project-summary > p {
+  display: flex;
+  align-items: center;
+  max-width: none;
+  padding-left: 30px;
+  color: #6e675f;
+  line-height: 1.7;
+  border: 0;
+}
+
+.chapter-shell .project-group-heading {
+  margin: 0 0 10px;
+  color: #596259;
+}
+
+.chapter-shell .project-group-progress {
+  margin-top: 68px;
+  color: #8e6d56;
+}
+
+.chapter-shell .project-list {
+  border-top: 1px solid rgba(23, 22, 20, 0.28);
+}
+
+.chapter-shell .project-row {
+  display: grid;
+  grid-template-columns: 52px minmax(210px, 0.58fr) minmax(0, 1fr) minmax(170px, 0.42fr);
+  gap: clamp(18px, 3vw, 46px);
+  align-items: center;
+  padding: 27px 0;
+  border-bottom: 1px solid rgba(23, 22, 20, 0.12);
+  transition: padding 220ms ease, background 220ms ease;
+}
+
+.chapter-shell .project-row:hover {
+  padding-left: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.chapter-shell .project-index {
+  color: #8f8478;
+  font-size: 0.56rem;
+}
+
+.chapter-shell .project-main p {
+  margin: 0 0 5px;
+  color: #8d7b6d;
+  font-size: 0.52rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .project-main h3 {
+  margin: 0;
+  font: 400 clamp(1.55rem, 2.3vw, 2.5rem)/1 var(--sig-serif);
+  letter-spacing: -0.03em;
+}
+
+.chapter-shell .project-statement {
+  margin: 0;
+  color: #6d675f;
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.chapter-shell .project-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  text-align: right;
+}
+
+.chapter-shell .project-meta > span {
+  color: #827a72;
+  font-size: 0.58rem;
+  line-height: 1.55;
+}
+
+.chapter-shell .project-meta b {
+  width: max-content;
+  padding: 6px 9px;
+  border: 1px solid rgba(23, 22, 20, 0.18);
+  border-radius: 999px;
+  color: #526451;
+  background: transparent;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .project-meta .status-progress {
+  color: #8a684f;
+  border-color: rgba(138, 104, 79, 0.28);
+  background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   07 — GUESTBOOK
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .guestbook-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1fr);
+  gap: clamp(50px, 9vw, 140px);
+  color: #f1ebe2;
+  background: #141310;
+}
+
+.chapter-shell .guestbook-copy .section-index {
+  color: #b78b6c;
+}
+
+.chapter-shell .guestbook-copy > p:last-child {
+  max-width: 440px;
+  color: #7c766e;
+}
+
+.chapter-shell .guestbook-form {
+  display: grid;
+  gap: 22px;
+  align-self: start;
+  padding-top: 5px;
+}
+
+.chapter-shell .guestbook-form label,
+.chapter-shell .enquiry-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.chapter-shell .guestbook-form label > span,
+.chapter-shell .enquiry-form label > span {
+  color: #8b8378;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .guestbook-form input,
+.chapter-shell .guestbook-form textarea,
+.chapter-shell .enquiry-form input,
+.chapter-shell .enquiry-form textarea,
+.chapter-shell .enquiry-form select {
+  width: 100%;
+  padding: 13px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  outline: none;
+  color: #eee7dd;
+  background: transparent;
+}
+
+.chapter-shell .guestbook-form input:focus,
+.chapter-shell .guestbook-form textarea:focus,
+.chapter-shell .enquiry-form input:focus,
+.chapter-shell .enquiry-form textarea:focus,
+.chapter-shell .enquiry-form select:focus {
+  border-bottom-color: #b38769;
+}
+
+.chapter-shell .guestbook-form button,
+.chapter-shell .enquiry-form button {
+  width: max-content;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #efe6db;
+  background: transparent;
+  cursor: pointer;
+}
+
+.chapter-shell .guestbook-form button:hover,
+.chapter-shell .enquiry-form button:hover {
+  color: #15130f;
+  background: #d0aa8c;
+  border-color: #d0aa8c;
+}
+
+.chapter-shell .guestbook-wall {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.chapter-shell .guestbook-wall-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.chapter-shell .guestbook-wall-grid article {
+  min-height: 180px;
+  padding: 20px;
+  background: #171612;
+}
+
+.chapter-shell .guestbook-wall-grid h3 {
+  font-family: var(--sig-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   08 — GIFT
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .gift-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.65fr) minmax(420px, 1fr);
+  gap: clamp(50px, 10vw, 150px);
+  align-items: center;
+  background: #f1ece4;
+}
+
+.chapter-shell .gift-copy > p:last-child {
+  max-width: 460px;
+}
+
+.chapter-shell .bank-card {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(28px, 4vw, 48px);
+  color: #f2ebe1;
+  border: 0;
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(189, 134, 94, 0.19), transparent 28%),
+    #161513;
+  box-shadow: none;
+}
+
+.chapter-shell .bank-card::before {
+  content: "30";
+  position: absolute;
+  right: -20px;
+  bottom: -58px;
+  color: rgba(255, 255, 255, 0.035);
+  font: 400 12rem/1 var(--sig-serif);
+  letter-spacing: -0.09em;
+}
+
+.chapter-shell .bank-card-topline span {
+  font: 400 1.15rem/1 var(--sig-serif);
+}
+
+.chapter-shell .bank-number {
+  font: 400 clamp(2.4rem, 4.8vw, 4.9rem)/1 var(--sig-serif);
+  letter-spacing: 0.035em;
+}
+
+.chapter-shell .bank-card-footer button {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: transparent;
+}
+
+.chapter-shell .bank-card-footer button:hover {
+  border-color: #c69673;
+  background: #c69673;
+  color: #15130f;
+}
+
+/* --------------------------------------------------------------------------
+   09 — TIME CAPSULE
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .timecapsule-section {
+  position: relative;
+  min-height: 720px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 110px var(--sig-gutter);
+  text-align: left;
+  color: #efe8df;
+  background: #1a1815;
+}
+
+.chapter-shell .timecapsule-section::after {
+  content: "2027";
+  position: absolute;
+  right: -2vw;
+  bottom: -7vw;
+  color: rgba(255, 255, 255, 0.025);
+  font: 400 clamp(10rem, 25vw, 27rem)/1 var(--sig-serif);
+  letter-spacing: -0.08em;
+}
+
+.chapter-shell .capsule-lock {
+  width: 56px;
+  height: 56px;
+  margin: 0 0 34px;
+  border-color: rgba(203, 157, 124, 0.3);
+  color: #b88969;
+}
+
+.chapter-shell .timecapsule-section h2 {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0;
+  font: 400 clamp(3.6rem, 7vw, 7.2rem)/0.86 var(--sig-serif);
+  letter-spacing: -0.065em;
+  text-align: left;
+}
+
+.chapter-shell .timecapsule-section > p:not(.section-index) {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  margin: 30px 0 38px;
+  color: #858078;
+  line-height: 1.75;
+}
+
+.chapter-shell .timecapsule-section > button {
+  position: relative;
+  z-index: 2;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: #eee6dc;
+  background: transparent;
+}
+
+.chapter-shell .timecapsule-section > button:hover {
+  color: #17130f;
+  border-color: #c49776;
+  background: #c49776;
+}
+
+/* --------------------------------------------------------------------------
+   10 — BUILD SOMETHING WITH ME
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .creator-section {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(50px, 8vw, 120px);
+  align-items: end;
+  padding-top: clamp(110px, 13vw, 180px);
+  padding-bottom: clamp(110px, 13vw, 180px);
+  color: #161410;
+  background: #c99d7b;
+}
+
+.chapter-shell .creator-section::after {
+  content: "WOB";
+  position: absolute;
+  right: -2vw;
+  top: -5vw;
+  color: rgba(255, 255, 255, 0.09);
+  font: 700 clamp(9rem, 22vw, 22rem)/1 var(--sig-sans);
+  letter-spacing: -0.09em;
+  pointer-events: none;
+}
+
+.chapter-shell .creator-section > div {
+  position: relative;
+  z-index: 2;
+}
+
+.chapter-shell .creator-section .section-label {
+  color: #604939;
+}
+
+.chapter-shell .creator-section h2 {
+  max-width: 860px;
+  margin: 0;
+  font: 400 clamp(3.4rem, 6vw, 6.4rem)/0.88 var(--sig-serif);
+  letter-spacing: -0.06em;
+}
+
+.chapter-shell .creator-section > div:first-child > p:last-child {
+  max-width: 620px;
+  color: #5e493b;
+  line-height: 1.72;
+}
+
+.chapter-shell .creator-actions {
+  min-width: 220px;
+  gap: 14px;
+}
+
+.chapter-shell .button-link {
+  width: 100%;
+  justify-content: space-between;
+  color: #f5eee5;
+  border-color: #181511;
+  background: #181511;
+}
+
+.chapter-shell .button-link:hover {
+  transform: translateY(-2px);
+  background: #29231d;
+}
+
+.chapter-shell .secondary-link {
+  color: #564235;
+  border-bottom-color: rgba(23, 20, 16, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   END CREDITS
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .chapter-footer {
+  min-height: 108px;
+  padding: 28px var(--sig-gutter);
+  color: #6e6962;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: #10100e;
+}
+
+.chapter-shell .chapter-footer button {
+  color: #c6bcb0;
+  font-size: 0.72rem;
+}
+
+.chapter-shell .chapter-footer button:hover {
+  color: #fff;
+}
+
+.chapter-shell .chapter-footer span {
+  color: #5f5a54;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+}
+
+/* --------------------------------------------------------------------------
+   PANELS + MODALS
+   -------------------------------------------------------------------------- */
+
+.chapter-shell .overlay {
+  z-index: 120;
+  background: rgba(10, 9, 8, 0.62);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.chapter-shell .menu-panel,
+.chapter-shell .creator-panel,
+.chapter-shell .enquiry-panel {
+  width: min(620px, 100%);
+  padding: 30px clamp(24px, 4vw, 52px);
+  color: #eee7dd;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background: #151411;
+  box-shadow: -35px 0 90px rgba(0, 0, 0, 0.22);
+}
+
+.chapter-shell .panel-topline {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chapter-shell .panel-topline span {
+  color: #9a9188;
+  font-size: 0.53rem;
+  letter-spacing: 0.2em;
+}
+
+.chapter-shell .panel-topline button {
+  color: #898078;
+}
+
+.chapter-shell .panel-topline button:hover {
+  color: #fff;
+}
+
+.chapter-shell .menu-panel nav {
+  margin-top: 34px;
+}
+
+.chapter-shell .menu-panel nav a {
+  min-height: 72px;
+  grid-template-columns: 46px 1fr;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  font: 400 1.65rem/1 var(--sig-serif);
+}
+
+.chapter-shell .menu-panel nav a:hover {
+  padding-left: 8px;
+  color: #d5b49a;
+}
+
+.chapter-shell .creator-monogram {
+  width: 98px;
+  height: 98px;
+  margin: 52px 0 34px;
+  border-color: #8f7059;
+  color: #c69b79;
+}
+
+.chapter-shell .creator-panel h2,
+.chapter-shell .enquiry-panel h2 {
+  margin-top: 44px;
+  font: 400 clamp(2.8rem, 5vw, 4.8rem)/0.94 var(--sig-serif);
+  letter-spacing: -0.05em;
+}
+
+.chapter-shell .creator-skill-grid span {
+  border-radius: 2px;
+}
+
+.chapter-shell .enquiry-form select option {
+  color: #191713;
+}
+
+/* Memory viewer */
+.chapter-shell .memory-story-panel {
+  width: min(1200px, calc(100vw - 36px));
+  height: min(90vh, 860px);
+  margin: auto;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  color: #191713;
+  background: #f1ece4;
+}
+
+.chapter-shell .memory-story-photo {
+  min-height: 100%;
+  background: #181612;
+}
+
+.chapter-shell .memory-story-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chapter-shell .memory-story-text {
+  overflow: auto;
+  padding: clamp(38px, 6vw, 80px);
+}
+
+.chapter-shell .memory-story-text > span {
+  color: #9c7258;
+  font-size: 0.56rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .memory-story-text h2 {
+  margin: 18px 0 24px;
+  font: 400 clamp(3rem, 5vw, 5rem)/0.9 var(--sig-serif);
+  letter-spacing: -0.06em;
+}
+
+.chapter-shell .memory-story-caption {
+  color: #4e4942;
+  font: 400 1.25rem/1.55 var(--sig-serif);
+}
+
+.chapter-shell .memory-story-text > p:not(.memory-story-caption) {
+  color: #6c665e;
+  line-height: 1.8;
+}
+
+.chapter-shell .memory-story-close {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  right: 18px;
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #eee8df;
+  background: rgba(18, 16, 13, 0.48);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1120px) {
+  .chapter-shell .chapter-rail {
+    display: none;
+  }
+
+  .chapter-shell .project-row {
+    grid-template-columns: 48px minmax(200px, 0.7fr) minmax(0, 1.3fr);
+  }
+
+  .chapter-shell .project-meta {
+    grid-column: 2 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .chapter-shell .gratitude-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .chapter-shell .desktop-nav {
+    display: none;
+  }
+
+  .chapter-shell .nav-menu-button {
+    display: block;
+  }
+
+  .chapter-shell .chapter-hero,
+  .chapter-shell .birthday-hero {
+    grid-template-columns: 92px 1fr;
+  }
+
+  .chapter-shell .hero-scroll-note {
+    display: none;
+  }
+
+  .chapter-shell .section-heading-row,
+  .chapter-shell .gratitude-intro,
+  .chapter-shell .guestbook-section,
+  .chapter-shell .gift-section,
+  .chapter-shell .creator-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-shell .wish-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-shell .project-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chapter-shell .project-summary > p {
+    grid-column: 1 / -1;
+    min-height: auto;
+  }
+
+  .chapter-shell .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .chapter-shell .guestbook-wall-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .chapter-shell .memory-story-panel {
+    height: 94vh;
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+
+  .chapter-shell .memory-story-photo {
+    min-height: 52vh;
+  }
+
+  .chapter-shell .memory-story-text {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 680px) {
+  .chapter-shell .chapter-nav {
+    top: 10px;
+    width: calc(100vw - 20px);
+    min-height: 52px;
+    padding: 6px 7px 6px 9px;
+  }
+
+  .chapter-shell .chapter-brand > span {
+    width: 36px;
+    height: 36px;
+  }
+
+  .chapter-shell .chapter-brand small {
+    display: none;
+  }
+
+  .chapter-shell .chapter-hero,
+  .chapter-shell .birthday-hero {
+    min-height: 100svh;
+    grid-template-columns: 1fr;
+    padding: 118px 20px 54px;
+  }
+
+  .chapter-shell .chapter-hero::before {
+    right: -14vw;
+    bottom: 3vh;
+    font-size: 68vw;
+  }
+
+  .chapter-shell .hero-edition {
+    position: absolute;
+    top: 86px;
+    right: 18px;
+    width: auto;
+    min-height: auto;
+    flex-direction: row;
+    gap: 7px;
+    padding: 7px 10px;
+    border-radius: 999px;
+  }
+
+  .chapter-shell .hero-edition span {
+    writing-mode: initial;
+    font-size: 0.45rem;
+  }
+
+  .chapter-shell .hero-edition strong {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .chapter-shell .hero-copy {
+    padding: 0;
+  }
+
+  .chapter-shell .birthday-badge {
+    margin-bottom: 22px;
+  }
+
+  .chapter-shell .hero-copy h1 {
+    max-width: 95%;
+    font-size: clamp(4rem, 18vw, 6.3rem);
+  }
+
+  .chapter-shell .hero-name {
+    margin-top: 26px;
+  }
+
+  .chapter-shell .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .chapter-shell .birthday-cheers,
+  .chapter-shell .birthday-hero-balloon-5,
+  .chapter-shell .birthday-hero-balloon-6,
+  .chapter-shell .birthday-spark-one {
+    display: none;
+  }
+
+  .chapter-shell .birthday-hero-balloon {
+    opacity: 0.18;
+  }
+
+  .chapter-shell .wishes-section,
+  .chapter-shell .memories-section,
+  .chapter-shell .journey-section,
+  .chapter-shell .built-section,
+  .chapter-shell .guestbook-section,
+  .chapter-shell .gift-section,
+  .chapter-shell .creator-section,
+  .chapter-shell .gratitude-section {
+    padding-inline: 20px;
+    padding-top: 86px;
+    padding-bottom: 86px;
+  }
+
+  .chapter-shell .section-heading-row {
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .chapter-shell .section-heading-row h2,
+  .chapter-shell .gift-copy h2,
+  .chapter-shell .guestbook-copy h2,
+  .chapter-shell .gratitude-intro h2 {
+    font-size: clamp(2.9rem, 14vw, 4.7rem);
+  }
+
+  .chapter-shell .wish-composer-card {
+    grid-template-columns: 1fr;
+    padding: 24px 0 28px;
+  }
+
+  .chapter-shell .wish-quote-mark {
+    display: none;
+  }
+
+  .chapter-shell .text-button {
+    justify-self: start;
+  }
+
+  .chapter-shell .featured-wish {
+    min-height: 310px;
+    padding: 28px 22px;
+  }
+
+  .chapter-shell .featured-wish p {
+    margin: 50px 0 36px;
+  }
+
+  .chapter-shell .memory-grid,
+  .chapter-shell .gratitude-grid,
+  .chapter-shell .guestbook-wall-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-shell .memory-card,
+  .chapter-shell .memory-card-2,
+  .chapter-shell .memory-card-3 {
+    min-height: 290px;
+  }
+
+  .chapter-shell .gratitude-intro {
+    gap: 30px;
+  }
+
+  .chapter-shell .gratitude-eyebrow {
+    margin-bottom: -4px;
+  }
+
+  .chapter-shell .gratitude-card {
+    min-height: 280px;
+    padding: 24px;
+  }
+
+  .chapter-shell .gratitude-card-top {
+    margin-bottom: 45px;
+  }
+
+  .chapter-shell .gratitude-ending {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 42px 24px;
+  }
+
+  .chapter-shell .gratitude-ending strong,
+  .chapter-shell .gratitude-signature {
+    grid-column: 1;
+  }
+
+  .chapter-shell .journey-row {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    padding: 25px 0;
+  }
+
+  .chapter-shell .journey-row p {
+    grid-column: 2;
+  }
+
+  .chapter-shell .project-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chapter-shell .project-row {
+    grid-template-columns: 34px 1fr;
+    gap: 14px;
+    padding: 25px 0;
+  }
+
+  .chapter-shell .project-row:hover {
+    padding-left: 0;
+  }
+
+  .chapter-shell .project-statement,
+  .chapter-shell .project-meta {
+    grid-column: 2;
+  }
+
+  .chapter-shell .project-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .chapter-shell .gift-section {
+    gap: 44px;
+  }
+
+  .chapter-shell .bank-card {
+    min-height: 300px;
+    padding: 24px 20px;
+  }
+
+  .chapter-shell .bank-number {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .chapter-shell .timecapsule-section {
+    min-height: 650px;
+    padding: 90px 20px;
+  }
+
+  .chapter-shell .timecapsule-section h2 {
+    font-size: clamp(3.4rem, 15vw, 5.2rem);
+  }
+
+  .chapter-shell .creator-section {
+    gap: 44px;
+  }
+
+  .chapter-shell .creator-section h2 {
+    font-size: clamp(3.2rem, 14vw, 5rem);
+  }
+
+  .chapter-shell .creator-actions {
+    width: 100%;
+  }
+
+  .chapter-shell .chapter-footer {
+    min-height: 140px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 34px 20px;
+  }
+
+  .chapter-shell .menu-panel,
+  .chapter-shell .creator-panel,
+  .chapter-shell .enquiry-panel {
+    width: 100%;
+    padding: 22px 20px;
+  }
+
+  .chapter-shell .memory-story-panel {
+    width: calc(100vw - 16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter-shell *,
+  .chapter-shell *::before,
+  .chapter-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .chapter-shell .birthday-confetti {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   CURATED PHOTO CHAPTER — real archive imagery
+   ========================================================================== */
+
+.chapter-shell .chapter-hero,
+.chapter-shell .birthday-hero {
+  grid-template-columns: 108px minmax(0, 1fr) minmax(290px, 390px);
+  column-gap: clamp(28px, 4vw, 70px);
+}
+
+.chapter-shell .hero-copy {
+  max-width: 850px;
+  padding-right: 0;
+}
+
+.chapter-shell .hero-portrait {
+  position: relative;
+  z-index: 5;
+  width: min(100%, 390px);
+  margin: 0;
+  justify-self: end;
+}
+
+.chapter-shell .hero-portrait-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(219, 181, 151, 0.22);
+  background: #f3f0eb;
+}
+
+.chapter-shell .hero-portrait-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
+}
+
+.chapter-shell .hero-portrait img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 38%;
+  filter: saturate(.84) contrast(1.02);
+}
+
+.chapter-shell .hero-portrait figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 13px;
+  color: #7e776f;
+  font-size: .5rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .hero-portrait figcaption b {
+  color: #c3a58d;
+  font-weight: 650;
+  letter-spacing: .06em;
+}
+
+.chapter-shell .hero-scroll-note {
+  position: absolute;
+  right: clamp(18px, 2.5vw, 42px);
+  bottom: 58px;
+}
+
+.chapter-shell .photo-story-copy b {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.chapter-shell .memory-story-gallery {
+  min-height: 100%;
+  max-height: min(90vh, 860px);
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 1px;
+  padding: 1px;
+  background: #201e1a;
+  scrollbar-width: thin;
+  scrollbar-color: #725d4d #201e1a;
+}
+
+.chapter-shell .memory-gallery-item {
+  position: relative;
+  min-height: 300px;
+  margin: 0;
+  overflow: hidden;
+  background: #151411;
+}
+
+.chapter-shell .memory-gallery-featured {
+  grid-column: 1 / -1;
+  min-height: 540px;
+}
+
+.chapter-shell .memory-gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+}
+
+.chapter-shell .memory-gallery-item figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  width: fit-content;
+  max-width: calc(100% - 28px);
+  padding: 8px 10px;
+  color: rgba(250,247,242,.92);
+  background: rgba(14,13,11,.64);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(8px);
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .memory-disclosure {
+  margin-top: 26px !important;
+  padding-top: 18px;
+  border-top: 1px solid rgba(24,21,18,.12);
+  color: #8f6d56 !important;
+  font-size: .73rem;
+  line-height: 1.65 !important;
+}
+
+@media (max-width: 1080px) {
+  .chapter-shell .chapter-hero,
+  .chapter-shell .birthday-hero {
+    grid-template-columns: 88px minmax(0, 1fr) minmax(250px, 310px);
+    column-gap: 24px;
+  }
+
+  .chapter-shell .hero-copy h1 {
+    font-size: clamp(4rem, 8vw, 7rem);
+  }
+}
+
+@media (max-width: 860px) {
+  .chapter-shell .chapter-hero,
+  .chapter-shell .birthday-hero {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 36px;
+  }
+
+  .chapter-shell .hero-edition {
+    position: absolute;
+    top: 86px;
+    right: 18px;
+    width: auto;
+    min-height: auto;
+    flex-direction: row;
+    gap: 7px;
+    padding: 7px 10px;
+  }
+
+  .chapter-shell .hero-edition span {
+    writing-mode: initial;
+  }
+
+  .chapter-shell .hero-edition strong {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .chapter-shell .hero-copy {
+    padding: 0;
+  }
+
+  .chapter-shell .hero-portrait {
+    width: min(82vw, 430px);
+    justify-self: start;
+  }
+
+  .chapter-shell .hero-scroll-note {
+    display: none;
+  }
+
+  .chapter-shell .memory-story-panel {
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .chapter-shell .memory-story-gallery {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 620px) {
+  .chapter-shell .hero-portrait {
+    width: min(88vw, 390px);
+  }
+
+  .chapter-shell .hero-portrait figcaption {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .chapter-shell .memory-story-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-shell .memory-gallery-featured {
+    grid-column: 1;
+    min-height: 430px;
+  }
+
+  .chapter-shell .memory-gallery-item {
+    min-height: 380px;
+  }
+}

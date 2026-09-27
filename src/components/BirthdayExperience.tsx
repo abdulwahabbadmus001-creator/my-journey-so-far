@@ -3,6 +3,7 @@ import { firebaseConfigured } from '../lib/firebase';
 import { submitGuestbook, submitLead, submitTimeCapsule, submitWish, subscribeApprovedGuestbook, subscribeApprovedWishes, subscribePublishedMemories } from '../services/content';
 import type { BirthdayWish, GuestbookEntry, MemoryEntry } from '../types/content';
 import GratitudeWall from "./GratitudeWall";
+import { curatedMoments, type CuratedMemory } from '../data/curatedMoments';
 import RiversOfMyLife from "./RiversOfMyLife";
 import '../styles/signature.css';
 
@@ -44,12 +45,6 @@ const journey = [
   ['AI & Africa', 'Exploring how responsible technology can be useful in African realities.'],
 ];
 
-const memorySlots = [
-  ['01', 'Working on the idea', 'A place for a photograph of you building, researching or solving a problem.'],
-  ['02', 'Learning in motion', 'A moment from school, a programme, a technical session or independent study.'],
-  ['03', 'Outside the screen', 'Events, travel, people and experiences that shaped the year beyond the laptop.'],
-  ['04', 'Milestones worth keeping', 'Graduation, certification, publication, launch or another personal chapter.'],
-];
 
 export default function BirthdayExperience({ postBirthday = false }: { postBirthday?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,7 +52,7 @@ export default function BirthdayExperience({ postBirthday = false }: { postBirth
   const [enquiryOpen, setEnquiryOpen] = useState(false);
   const [wishOpen, setWishOpen] = useState(false);
   const [capsuleOpen, setCapsuleOpen] = useState(false);
-  const [selectedMemory, setSelectedMemory] = useState<MemoryEntry | null>(null);
+  const [selectedMemory, setSelectedMemory] = useState<CuratedMemory | null>(null);
   const [giftCopied, setGiftCopied] = useState(false);
   const [enquirySent, setEnquirySent] = useState(false);
   const [wishSent, setWishSent] = useState(false);
@@ -95,6 +90,10 @@ export default function BirthdayExperience({ postBirthday = false }: { postBirth
 
   const featuredWish = useMemo(() => approvedWishes.find((wish) => wish.featured) ?? approvedWishes[0], [approvedWishes]);
   const regularWishes = useMemo(() => approvedWishes.filter((wish) => wish.id !== featuredWish?.id).slice(0, 5), [approvedWishes, featuredWish]);
+  const displayMemories = useMemo<CuratedMemory[]>(() => {
+    if (memories.length === 0) return curatedMoments;
+    return memories.map((memory) => ({ ...memory }));
+  }, [memories]);
 
   const copyAccount = async () => {
     await navigator.clipboard.writeText('9042044060');
@@ -203,6 +202,12 @@ export default function BirthdayExperience({ postBirthday = false }: { postBirth
           <div className="hero-actions"><button className="primary-link hero-primary-button" type="button" onClick={() => setWishOpen(true)}>Leave a birthday wish <span aria-hidden="true">↗</span></button><a className="hero-secondary-link" href="#wishes">Enter the chapter <span>↓</span></a></div>
           {!postBirthday && <div className="birthday-cheers"><span>✦</span><p>Celebrate · Remember · Build · Dream</p><span>✦</span></div>}
         </div>
+        <figure className="hero-portrait">
+          <div className="hero-portrait-frame">
+            <img src="/images/hero/wahab-cover.webp" alt="Wahab Opeyemi Badmus wearing black glasses with his arms folded." />
+          </div>
+          <figcaption><span>PORTRAIT / 2026</span><b>Wahab Opeyemi Badmus</b></figcaption>
+        </figure>
         <div className="hero-scroll-note" aria-hidden="true"><span>SCROLL</span><i /></div>
       </section>
 
@@ -223,12 +228,8 @@ export default function BirthdayExperience({ postBirthday = false }: { postBirth
       </section>
 
       <section className="memories-section" id="memories">
-        <div className="section-heading-row light-heading"><div><p className="section-index">02 / MOMENTS BEHIND THE JOURNEY</p><h2>Some moments deserve more than a camera roll.</h2></div><p className="built-intro">Work. Learning. People. Travel. Milestones. Each photograph can carry the story behind it.</p></div>
-        {memories.length > 0 ? (
-          <div className="photo-story-grid">{memories.map((memory, index) => <button className={`photo-story-card photo-story-card-${(index % 5) + 1}`} type="button" key={memory.id} onClick={() => setSelectedMemory(memory)}><img src={memory.imageUrl} alt={memory.altText} loading="lazy" /><div className="photo-story-shade" /><span className="photo-story-index">{String(index + 1).padStart(2, '0')}</span><div className="photo-story-copy"><small>{memory.category}{memory.dateLabel ? ` · ${memory.dateLabel}` : ''}</small><h3>{memory.title}</h3><p>{memory.caption}</p><b>Read the moment ↗</b></div></button>)}</div>
-        ) : (
-          <div className="memory-grid">{memorySlots.map(([number, title, description], index) => <article className={`memory-card memory-card-${index + 1}`} key={number}><span>{number}</span><div className="memory-placeholder-mark" aria-hidden="true"><i /><b>YOUR PHOTO</b></div><div><h3>{title}</h3><p>{description}</p></div></article>)}</div>
-        )}
+        <div className="section-heading-row light-heading"><div><p className="section-index">02 / MOMENTS BEHIND THE JOURNEY</p><h2>Some moments deserve more than a camera roll.</h2></div><p className="built-intro">Childhood. Research. Friendship. Graduation. Learning. Building. Abuja. Travel. These photographs are arranged as chapters, not as a gallery dump.</p></div>
+        <div className="photo-story-grid">{displayMemories.map((memory, index) => <button className={`photo-story-card photo-story-card-${(index % 5) + 1}`} type="button" key={memory.id} onClick={() => setSelectedMemory(memory)}><img src={memory.imageUrl} alt={memory.altText} loading="lazy" /><div className="photo-story-shade" /><span className="photo-story-index">{String(index + 1).padStart(2, '0')}</span><div className="photo-story-copy"><small>{memory.category}{memory.dateLabel ? ` · ${memory.dateLabel}` : ''}</small><h3>{memory.title}</h3><p>{memory.caption}</p><b>{memory.gallery && memory.gallery.length > 1 ? `${memory.gallery.length} images · ` : ''}Read the moment ↗</b></div></button>)}</div>
       </section>
 
       <GratitudeWall />
@@ -263,7 +264,7 @@ export default function BirthdayExperience({ postBirthday = false }: { postBirth
 
       <footer className="chapter-footer" id="end-credits"><button type="button" onClick={() => setCreatorOpen(true)}>Designed &amp; built by Wahab Opeyemi Badmus</button><span>11 / END CREDITS · OCTOBER 30 · 2026</span></footer>
 
-      {selectedMemory && <div className="overlay memory-story-overlay" role="presentation" onMouseDown={() => setSelectedMemory(null)}><article className="memory-story-panel" role="dialog" aria-modal="true" aria-label={selectedMemory.title} onMouseDown={(e) => e.stopPropagation()}><button className="memory-story-close" onClick={() => setSelectedMemory(null)} type="button">Close</button><div className="memory-story-photo"><img src={selectedMemory.imageUrl} alt={selectedMemory.altText} /></div><div className="memory-story-text"><span>{selectedMemory.category}{selectedMemory.dateLabel ? ` · ${selectedMemory.dateLabel}` : ''}</span><h2>{selectedMemory.title}</h2><p className="memory-story-caption">{selectedMemory.caption}</p>{selectedMemory.story && <p>{selectedMemory.story}</p>}</div></article></div>}
+      {selectedMemory && <div className="overlay memory-story-overlay" role="presentation" onMouseDown={() => setSelectedMemory(null)}><article className="memory-story-panel" role="dialog" aria-modal="true" aria-label={selectedMemory.title} onMouseDown={(e) => e.stopPropagation()}><button className="memory-story-close" onClick={() => setSelectedMemory(null)} type="button">Close</button><div className="memory-story-gallery">{selectedMemory.gallery && selectedMemory.gallery.length > 0 ? <>{selectedMemory.gallery.map((image, index) => <figure className={index === 0 ? 'memory-gallery-item memory-gallery-featured' : 'memory-gallery-item'} key={`${selectedMemory.id}-${image.imageUrl}`}><img src={image.imageUrl} alt={image.altText} loading={index === 0 ? 'eager' : 'lazy'} />{image.label && <figcaption>{String(index + 1).padStart(2, '0')} · {image.label}</figcaption>}</figure>)}</> : <figure className="memory-gallery-item memory-gallery-featured"><img src={selectedMemory.imageUrl} alt={selectedMemory.altText} /></figure>}</div><div className="memory-story-text"><span>{selectedMemory.category}{selectedMemory.dateLabel ? ` · ${selectedMemory.dateLabel}` : ''}</span><h2>{selectedMemory.title}</h2><p className="memory-story-caption">{selectedMemory.caption}</p>{selectedMemory.story && <p>{selectedMemory.story}</p>}{selectedMemory.disclosure && <p className="memory-disclosure">NOTE · {selectedMemory.disclosure}</p>}</div></article></div>}
 
       {capsuleOpen && <div className="overlay" role="presentation" onMouseDown={closeCapsule}><aside className="enquiry-panel capsule-panel" role="dialog" aria-modal="true" aria-label="Birthday time capsule" onMouseDown={(e) => e.stopPropagation()}><div className="panel-topline"><span>TIME CAPSULE · 2027</span><button type="button" onClick={closeCapsule}>Close</button></div>{capsuleSent ? <div className="enquiry-success"><span>⌁</span><h2>Your note is sealed.</h2><p>It has been stored privately for the next October 30 and will not appear on the public birthday wall.</p><button type="button" onClick={closeCapsule}>Return to the chapter</button></div> : <><h2>Write to the next chapter.</h2><p className="enquiry-intro">A hope, prayer, prediction, challenge or reminder for Wahab one year from now.</p><form className="enquiry-form" onSubmit={submitCapsuleForm}><label><span>Your name</span><input required name="name" minLength={2} maxLength={80} type="text" placeholder="Name" /></label><label><span>Your future note</span><textarea required name="message" minLength={5} maxLength={1500} rows={7} placeholder="Before the next October 30, I hope…" /></label>{formError && <p className="form-error">{formError}</p>}<button disabled={submitting} type="submit">{submitting ? 'Sealing…' : 'Seal for next year'} <span>↗</span></button></form></>}</aside></div>}
 

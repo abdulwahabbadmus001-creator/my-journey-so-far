@@ -1,5 +1,5 @@
 /* ========================================================================== 
-   OCTOBER CHAPTER — SIGNATURE UI
+   OCTOBER CHAPTER â€” SIGNATURE UI
    A restrained editorial layer over the existing birthday experience.
    Scoped to .chapter-shell so the admin and pre-birthday screens stay intact.
    ========================================================================== */
@@ -144,7 +144,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   HERO — minimal celebration
+   HERO â€” minimal celebration
    -------------------------------------------------------------------------- */
 
 .chapter-shell .chapter-hero,
@@ -371,7 +371,7 @@
   background: linear-gradient(#9c765e, transparent);
 }
 
-/* balloons remain — quieter and more sculptural */
+/* balloons remain â€” quieter and more sculptural */
 .chapter-shell .birthday-hero-balloon {
   opacity: 0.26;
   filter: saturate(0.55);
@@ -471,7 +471,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   01 — WISHES
+   01 â€” WISHES
    -------------------------------------------------------------------------- */
 
 .chapter-shell .wishes-section {
@@ -588,7 +588,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   02 — MOMENTS
+   02 â€” MOMENTS
    -------------------------------------------------------------------------- */
 
 .chapter-shell .memories-section {
@@ -714,7 +714,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   03 — GRATITUDE
+   03 â€” GRATITUDE
    -------------------------------------------------------------------------- */
 
 .chapter-shell .gratitude-section {
@@ -864,7 +864,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   04 — JOURNEY
+   04 â€” JOURNEY
    -------------------------------------------------------------------------- */
 
 .chapter-shell .journey-section {
@@ -906,7 +906,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   05 — PROJECTS
+   05 â€” PROJECTS
    -------------------------------------------------------------------------- */
 
 .chapter-shell .built-section {
@@ -1047,7 +1047,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   07 — GUESTBOOK
+   07 â€” GUESTBOOK
    -------------------------------------------------------------------------- */
 
 .chapter-shell .guestbook-section {
@@ -1156,7 +1156,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   08 — GIFT
+   08 â€” GIFT
    -------------------------------------------------------------------------- */
 
 .chapter-shell .gift-section {
@@ -1219,7 +1219,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   09 — TIME CAPSULE
+   09 â€” TIME CAPSULE
    -------------------------------------------------------------------------- */
 
 .chapter-shell .timecapsule-section {
@@ -1291,7 +1291,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   10 — BUILD SOMETHING WITH ME
+   10 â€” BUILD SOMETHING WITH ME
    -------------------------------------------------------------------------- */
 
 .chapter-shell .creator-section {
@@ -1898,3 +1898,408 @@
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   CURATED PHOTO CHAPTER â€” real archive imagery
+   ========================================================================== */
+
+.chapter-shell .chapter-hero,
+.chapter-shell .birthday-hero {
+  grid-template-columns: 108px minmax(0, 1fr) minmax(290px, 390px);
+  column-gap: clamp(28px, 4vw, 70px);
+}
+
+.chapter-shell .hero-copy {
+  max-width: 850px;
+  padding-right: 0;
+}
+
+.chapter-shell .hero-portrait {
+  position: relative;
+  z-index: 5;
+  width: min(100%, 390px);
+  margin: 0;
+  justify-self: end;
+}
+
+.chapter-shell .hero-portrait-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(219, 181, 151, 0.22);
+  background: #f3f0eb;
+}
+
+.chapter-shell .hero-portrait-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
+}
+
+.chapter-shell .hero-portrait img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 38%;
+  filter: saturate(.84) contrast(1.02);
+}
+
+.chapter-shell .hero-portrait figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 13px;
+  color: #7e776f;
+  font-size: .5rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .hero-portrait figcaption b {
+  color: #c3a58d;
+  font-weight: 650;
+  letter-spacing: .06em;
+}
+
+.chapter-shell .hero-scroll-note {
+  position: absolute;
+  right: clamp(18px, 2.5vw, 42px);
+  bottom: 58px;
+}
+
+.chapter-shell .photo-story-copy b {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.chapter-shell .memory-story-gallery {
+  min-height: 100%;
+  max-height: min(90vh, 860px);
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 1px;
+  padding: 1px;
+  background: #201e1a;
+  scrollbar-width: thin;
+  scrollbar-color: #725d4d #201e1a;
+}
+
+.chapter-shell .memory-gallery-item {
+  position: relative;
+  min-height: 300px;
+  margin: 0;
+  overflow: hidden;
+  background: #151411;
+}
+
+.chapter-shell .memory-gallery-featured {
+  grid-column: 1 / -1;
+  min-height: 540px;
+}
+
+.chapter-shell .memory-gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+}
+
+.chapter-shell .memory-gallery-item figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  width: fit-content;
+  max-width: calc(100% - 28px);
+  padding: 8px 10px;
+  color: rgba(250,247,242,.92);
+  background: rgba(14,13,11,.64);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(8px);
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.chapter-shell .memory-disclosure {
+  margin-top: 26px !important;
+  padding-top: 18px;
+  border-top: 1px solid rgba(24,21,18,.12);
+  color: #8f6d56 !important;
+  font-size: .73rem;
+  line-height: 1.65 !important;
+}
+
+@media (max-width: 1080px) {
+  .chapter-shell .chapter-hero,
+  .chapter-shell .birthday-hero {
+    grid-template-columns: 88px minmax(0, 1fr) minmax(250px, 310px);
+    column-gap: 24px;
+  }
+
+  .chapter-shell .hero-copy h1 {
+    font-size: clamp(4rem, 8vw, 7rem);
+  }
+}
+
+@media (max-width: 860px) {
+  .chapter-shell .chapter-hero,
+  .chapter-shell .birthday-hero {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 36px;
+  }
+
+  .chapter-shell .hero-edition {
+    position: absolute;
+    top: 86px;
+    right: 18px;
+    width: auto;
+    min-height: auto;
+    flex-direction: row;
+    gap: 7px;
+    padding: 7px 10px;
+  }
+
+  .chapter-shell .hero-edition span {
+    writing-mode: initial;
+  }
+
+  .chapter-shell .hero-edition strong {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .chapter-shell .hero-copy {
+    padding: 0;
+  }
+
+  .chapter-shell .hero-portrait {
+    width: min(82vw, 430px);
+    justify-self: start;
+  }
+
+  .chapter-shell .hero-scroll-note {
+    display: none;
+  }
+
+  .chapter-shell .memory-story-panel {
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .chapter-shell .memory-story-gallery {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 620px) {
+  .chapter-shell .hero-portrait {
+    width: min(88vw, 390px);
+  }
+
+  .chapter-shell .hero-portrait figcaption {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .chapter-shell .memory-story-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-shell .memory-gallery-featured {
+    grid-column: 1;
+    min-height: 430px;
+  }
+
+  .chapter-shell .memory-gallery-item {
+    min-height: 380px;
+  }
+}
+/* === FINAL PHOTO FIT FIX START === */
+/* Full photographs remain visible in the story reader instead of being cropped. */
+.chapter-shell .memory-gallery-item {
+  display: grid;
+  place-items: center;
+  background: #151411;
+}
+
+.chapter-shell .memory-gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #151411;
+}
+
+/* Cover cards prioritise complete faces and people near the upper part of portraits. */
+.chapter-shell .photo-story-card {
+  background: #181612;
+}
+
+.chapter-shell .photo-story-card img {
+  object-position: center 22% !important;
+}
+
+/* Avoid aggressive zooming that can push faces outside the thumbnail. */
+.chapter-shell .photo-story-card:hover img {
+  transform: scale(1.01) !important;
+}
+/* === FINAL PHOTO FIT FIX END === */
+/* === FINAL STORY SCROLL V2 START === */
+
+/* Story overlay must always be able to scroll. */
+.chapter-shell .memory-story-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 400 !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 18px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop story reader. */
+.chapter-shell .memory-story-panel {
+  position: relative !important;
+  width: min(1200px, calc(100vw - 36px)) !important;
+  height: min(90dvh, 860px) !important;
+  max-height: 90dvh !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr) !important;
+}
+
+/* Both sides can scroll independently on larger screens. */
+.chapter-shell .memory-story-gallery,
+.chapter-shell .memory-story-text {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Never crop the expanded photographs. */
+.chapter-shell .memory-gallery-item {
+  display: grid !important;
+  place-items: center !important;
+  background: #151411 !important;
+}
+
+.chapter-shell .memory-gallery-item img {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: 78dvh !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #151411 !important;
+}
+
+/* Preview cards keep faces higher in the frame. */
+.chapter-shell .photo-story-card img {
+  object-position: center 20% !important;
+}
+
+.chapter-shell .photo-story-card:hover img {
+  transform: scale(1.01) !important;
+}
+
+/* Mobile: one natural vertical page instead of two locked panes. */
+@media (max-width: 860px) {
+  .chapter-shell .memory-story-overlay {
+    display: block !important;
+    overflow-y: auto !important;
+    padding: 8px !important;
+  }
+
+  .chapter-shell .memory-story-panel {
+    display: block !important;
+    width: calc(100vw - 16px) !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    margin: 8px auto 36px !important;
+    overflow: visible !important;
+  }
+
+  .chapter-shell .memory-story-gallery,
+  .chapter-shell .memory-story-text {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .chapter-shell .memory-story-gallery {
+    display: block !important;
+  }
+
+  .chapter-shell .memory-gallery-item,
+  .chapter-shell .memory-gallery-featured {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 1px !important;
+  }
+
+  .chapter-shell .memory-gallery-item img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  .chapter-shell .memory-story-text {
+    padding: 30px 22px 48px !important;
+  }
+
+  .chapter-shell .memory-story-close {
+    position: fixed !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 500 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .chapter-shell .memory-story-text h2 {
+    font-size: clamp(2.2rem, 11vw, 3.5rem) !important;
+  }
+
+  .chapter-shell .memory-story-caption {
+    font-size: 1.05rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .chapter-shell .memory-story-text > p:not(.memory-story-caption) {
+    line-height: 1.75 !important;
+  }
+
+  .chapter-shell .memory-gallery-item figcaption {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 10px 12px !important;
+    background: #201e1a !important;
+    border: 0 !important;
+  }
+}
+
+/* === FINAL STORY SCROLL V2 END === */

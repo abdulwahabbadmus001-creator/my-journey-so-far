@@ -142,7 +142,7 @@ export default function AdminApp() {
         <div className="admin-sidebar-footer">
           {demoEnabled ? <span>Development demo mode</span> : <span>{user?.email}</span>}
           <a href="/" target="_blank" rel="noreferrer">View public site ↗</a>
-          {!demoEnabled && auth && <button type="button" onClick={() => signOut(auth)}>Sign out</button>}
+          {!demoEnabled && auth && <button type="button" onClick={() => signOut(auth!)}>Sign out</button>}
         </div>
       </aside>
 

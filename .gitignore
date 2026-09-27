@@ -3,4 +3,8 @@ dist
 .env
 .env.local
 .DS_Store
-.env.*
+.env.*.photo-fix-backup/
+.final-wrap-v2-backup/
+.build-cleanup-backup/
+src/src/
+src/public/
