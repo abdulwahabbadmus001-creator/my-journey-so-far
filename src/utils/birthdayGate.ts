@@ -28,7 +28,7 @@ function lagosDateParts(now: Date) {
 }
 
 export function getLaunchState(now = new Date()): LaunchState {
-  const preview = import.meta.env.VITE_PREVIEW_MODE;
+  const preview = 'birthday'; // TEMPORARY: production mobile QA only
   if (preview === 'pre') return 'PRE_BIRTHDAY';
   if (preview === 'birthday') return 'BIRTHDAY';
   if (preview === 'post') return 'POST_BIRTHDAY';
