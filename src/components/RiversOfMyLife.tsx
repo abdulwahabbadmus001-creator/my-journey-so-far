@@ -119,7 +119,8 @@ export default function RiversOfMyLife() {
     setError('');
     setSubmitting(true);
 
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
 
     try {
       if (firebaseConfigured) {
@@ -129,7 +130,7 @@ export default function RiversOfMyLife() {
         });
       }
 
-      event.currentTarget.reset();
+      formElement.reset();
       setCommentSent(true);
       window.setTimeout(() => setCommentSent(false), 5000);
     } catch (reason) {
