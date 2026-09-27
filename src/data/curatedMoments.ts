@@ -70,7 +70,7 @@ export const curatedMoments: CuratedMemory[] = [
     category: 'Milestones',
     dateLabel: 'TECHCRUSH - 2026',
     imageUrl: '/images/moments/14-techcrush-graduating.webp',
-    altText: 'TechCrush graduation graphic celebrating Wahab's completion of the Tech4Africans Scholarship programme.',
+    altText: "TechCrush graduation graphic celebrating Wahab's completion of the Tech4Africans Scholarship programme.",
     displayOrder: 4,
     published: true,
   },
@@ -87,7 +87,7 @@ export const curatedMoments: CuratedMemory[] = [
     published: true,
     gallery: [
       { imageUrl: '/images/moments/15-cs50-readability.webp', altText: 'A CS50 assignment and submission screen.', label: 'CS50 - Readability' },
-      { imageUrl: '/images/moments/16-cs50-codespace.webp', altText: 'Wahab's CS50 Codespace showing programming work.', label: 'Inside CS50 Codespace' },
+      { imageUrl: '/images/moments/16-cs50-codespace.webp', altText: "Wahab's CS50 Codespace showing programming work.", label: 'Inside CS50 Codespace' },
       { imageUrl: '/images/moments/17-python-for-everybody.webp', altText: 'A Python for Everybody assignment and successful program output.', label: 'Python for Everybody' },
     ],
   },
