@@ -136,7 +136,7 @@ export const curatedMoments: CuratedMemory[] = [
     caption: 'Mr. Wisdom taught us the game. Later that night, Mr. Ismail and I sat down for a match. Final score: Ismail 2 - Wahab 0.',
     story: 'Not every memory needs to carry a major lesson. This one stays because it makes me laugh. While in Abuja, Mr. Wisdom taught us chess. Mr. Ismail and I later tested what we had learned against each other. I was beaten 2-0 that night. Some moments deserve a place in the archive precisely because they are ordinary, funny and human.',
     category: 'Life',
-    dateLabel: 'ABUJA Ã‚- 2-0',
+    dateLabel: 'ABUJA - 2-0',
     imageUrl: '/images/moments/28-chess-2-0.webp',
     altText: 'A chessboard from the night Wahab played Mr. Ismail in Abuja.',
     displayOrder: 8,
