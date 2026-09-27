@@ -272,7 +272,7 @@ The goal is for the experience to feel **intentional**.
 | **Firebase Authentication** | Private admin authentication |
 | **Cloud Firestore** | Wishes, guestbook, reflections, reactions, leads, and time capsule data |
 | **Git / GitHub** | Version control and source repository |
-| **Netlify** | Planned production deployment |
+| **Netlify** | Production hosting and continuous deployment |
 
 ---
 
@@ -412,7 +412,7 @@ The production build has been validated locally before deployment.
 
 ## Deployment
 
-The project is prepared for deployment through **Netlify** from this GitHub repository.
+The project is deployed through **Netlify** from this GitHub repository.
 
 ### Netlify configuration
 
@@ -424,7 +424,7 @@ The project is prepared for deployment through **Netlify** from this GitHub repo
 
 ### Live Website
 
-> **Live URL:** _To be added after the Netlify deployment is complete._
+> **Live URL:** [https://myjourneysofar.netlify.app/](https://myjourneysofar.netlify.app/)
 
 ---
 
@@ -451,10 +451,10 @@ The project is prepared for deployment through **Netlify** from this GitHub repo
 
 ### Final Production Tasks
 
-- [ ] Publish final Firestore security rules
-- [ ] Add production environment variables to Netlify
-- [ ] Deploy to Netlify
-- [ ] Add the live URL above
+- [x] Publish final Firestore security rules
+- [x] Add production environment variables to Netlify
+- [x] Deploy to Netlify
+- [x] Add the live URL above
 - [ ] Final test on a physical mobile device
 
 ---
