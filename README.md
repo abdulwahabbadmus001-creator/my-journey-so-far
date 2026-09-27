@@ -455,7 +455,7 @@ The project is deployed through **Netlify** from this GitHub repository.
 - [x] Add production environment variables to Netlify
 - [x] Deploy to Netlify
 - [x] Add the live URL above
-- [ ] Final test on a physical mobile device
+- [x] Final test on a physical mobile device
 
 ---
 
