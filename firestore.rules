@@ -1,7 +1,12 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    function signedIn() { return request.auth != null; }
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
     function owner() {
       return signedIn()
         && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
@@ -20,7 +25,24 @@ service cloud.firestore {
 
     match /wishes/{wishId} {
       allow read: if resource.data.status == 'approved' || owner();
-      allow create: if request.resource.data.keys().hasOnly(['name','relationship','message','status','featured','createdAt'])
+
+      allow create: if
+        request.resource.data.keys().hasAll([
+          'name',
+          'relationship',
+          'message',
+          'status',
+          'featured',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name',
+          'relationship',
+          'message',
+          'status',
+          'featured',
+          'createdAt'
+        ])
         && request.resource.data.name is string
         && request.resource.data.name.size() >= 2
         && request.resource.data.name.size() <= 80
@@ -31,47 +53,123 @@ service cloud.firestore {
         && request.resource.data.message.size() <= 1000
         && request.resource.data.status == 'pending'
         && request.resource.data.featured == false;
+
       allow update, delete: if owner();
     }
 
     match /guestbook/{entryId} {
       allow read: if resource.data.status == 'approved' || owner();
-      allow create: if request.resource.data.keys().hasOnly(['name','note','status','createdAt'])
+
+      allow create: if
+        request.resource.data.keys().hasAll([
+          'name',
+          'status',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name',
+          'note',
+          'status',
+          'createdAt'
+        ])
         && request.resource.data.name is string
         && request.resource.data.name.size() >= 2
         && request.resource.data.name.size() <= 80
-        && request.resource.data.note is string
-        && request.resource.data.note.size() <= 500
+        && (
+          !request.resource.data.keys().hasAny(['note'])
+          || (
+            request.resource.data.note is string
+            && request.resource.data.note.size() <= 500
+          )
+        )
         && request.resource.data.status == 'pending';
+
       allow update, delete: if owner();
     }
 
     match /leads/{leadId} {
       allow read, update, delete: if owner();
-      allow create: if request.resource.data.keys().hasOnly(['name','email','phone','preferredContact','organisation','projectType','brief','budget','status','createdAt'])
+
+      allow create: if
+        request.resource.data.keys().hasAll([
+          'name',
+          'email',
+          'projectType',
+          'brief',
+          'status',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name',
+          'email',
+          'phone',
+          'preferredContact',
+          'organisation',
+          'projectType',
+          'brief',
+          'budget',
+          'status',
+          'createdAt'
+        ])
         && request.resource.data.name is string
         && request.resource.data.name.size() >= 2
         && request.resource.data.name.size() <= 100
         && request.resource.data.email is string
+        && request.resource.data.email.size() >= 3
         && request.resource.data.email.size() <= 180
-        && request.resource.data.phone is string
-        && request.resource.data.phone.size() <= 40
-        && request.resource.data.organisation is string
-        && request.resource.data.organisation.size() <= 140
-        && request.resource.data.preferredContact in ['Email','WhatsApp','Phone']
+        && (
+          !request.resource.data.keys().hasAny(['phone'])
+          || (
+            request.resource.data.phone is string
+            && request.resource.data.phone.size() <= 40
+          )
+        )
+        && (
+          !request.resource.data.keys().hasAny(['preferredContact'])
+          || request.resource.data.preferredContact in [
+            'Email',
+            'WhatsApp',
+            'Phone'
+          ]
+        )
+        && (
+          !request.resource.data.keys().hasAny(['organisation'])
+          || (
+            request.resource.data.organisation is string
+            && request.resource.data.organisation.size() <= 140
+          )
+        )
         && request.resource.data.projectType is string
         && request.resource.data.projectType.size() <= 100
         && request.resource.data.brief is string
         && request.resource.data.brief.size() >= 10
         && request.resource.data.brief.size() <= 2500
-        && request.resource.data.budget is string
-        && request.resource.data.budget.size() <= 80
+        && (
+          !request.resource.data.keys().hasAny(['budget'])
+          || (
+            request.resource.data.budget is string
+            && request.resource.data.budget.size() <= 80
+          )
+        )
         && request.resource.data.status == 'new';
     }
 
     match /timeCapsule/{messageId} {
       allow read, update, delete: if owner();
-      allow create: if request.resource.data.keys().hasOnly(['name','message','unlockDate','createdAt'])
+
+      allow create: if
+        request.resource.data.keys().hasAll([
+          'name',
+          'message',
+          'unlockDate',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name',
+          'message',
+          'unlockDate',
+          'createdAt'
+        ])
         && request.resource.data.name is string
         && request.resource.data.name.size() >= 2
         && request.resource.data.name.size() <= 80
@@ -81,6 +179,62 @@ service cloud.firestore {
         && request.resource.data.unlockDate == '2027-10-30';
     }
 
+    match /riverComments/{commentId} {
+      allow read: if resource.data.status == 'approved' || owner();
+
+      allow create: if
+        request.resource.data.keys().hasAll([
+          'name',
+          'message',
+          'status',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'name',
+          'message',
+          'status',
+          'createdAt'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.message is string
+        && request.resource.data.message.size() >= 2
+        && request.resource.data.message.size() <= 1200
+        && request.resource.data.status == 'pending';
+
+      allow update, delete: if owner();
+    }
+
+    match /riverReactions/{visitorId} {
+      allow read: if true;
+
+      allow create, update: if
+        request.resource.data.keys().hasAll([
+          'visitorId',
+          'reaction',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'visitorId',
+          'reaction',
+          'createdAt'
+        ])
+        && request.resource.data.visitorId is string
+        && request.resource.data.visitorId == visitorId
+        && request.resource.data.visitorId.size() >= 8
+        && request.resource.data.visitorId.size() <= 160
+        && request.resource.data.reaction in [
+          'felt',
+          'inspired',
+          'rooting',
+          'respect'
+        ];
+
+      allow delete: if owner();
+    }
+
+    // Legacy letter helpers are kept for older data/admin compatibility.
     match /letters/{letterId} {
       allow read: if resource.data.published == true || owner();
       allow create, update, delete: if owner();
