@@ -143,10 +143,11 @@ export default function BirthdayExperience({ postBirthday = false }: { postBirth
   const submitGuestbookForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitting(true); setFormError('');
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     try {
       if (firebaseConfigured) await submitGuestbook({ name: String(form.get('name') || ''), note: String(form.get('note') || '') });
-      event.currentTarget.reset();
+      formElement.reset();
       setGuestbookSent(true);
       window.setTimeout(() => setGuestbookSent(false), 3500);
     } catch (error) { setFormError(error instanceof Error ? error.message : 'Could not sign the guestbook.'); }
