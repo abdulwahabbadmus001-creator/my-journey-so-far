@@ -212,12 +212,14 @@ The site also contains a compact record of products I have built or continue to 
 
 ### Built & Shipped
 
-| Product | Focus |
-|---|---|
-| **Decidr** | Structured decision-making |
-| **ForeTrend** | Weather-focused digital experience |
-| **EduPath** | Examination preparation and learning |
-| **FocusMate** | Productivity and focus sessions |
+| Product | Goal / Focus | Live |
+|---|---|---|
+| **Decidr** | Structured decision-making | — |
+| **ForeTrend** | Weather-focused digital experience | — |
+| **EduPath** | Examination preparation and learning | — |
+| **FocusMate** | Productivity and focus sessions | — |
+| **Moji's Heritage** | Makes Nigerian histories, traditions, festivals, languages, foods, people and heritage destinations easier to discover, learn from and explore through a digital cultural-heritage platform. | [Live site](https://mojis-heritage-47e78.web.app/) |
+| **OjaFlow MVP v1.1** | Gives Nigerian traders and small businesses one practical workspace for sales, stock, expenses, debts, customers, invoices, receipts and AI-assisted business insight. | [Live app](https://ojaflow.netlify.app/) |
 
 ### In Active Development
 
@@ -225,9 +227,7 @@ The site also contains a compact record of products I have built or continue to 
 |---|---|
 | **AfriSync** | Offline-first synchronisation infrastructure |
 | **LinguaNaija** | Nigerian multilingual language technology |
-| **Moji's Heritage** | Nigerian cultural heritage platform |
 | **NextStep** | Career matching and opportunity discovery |
-| **OjaFlow** | SME sales, inventory, expense and business management |
 | **20 Modern Mini-Python Projects** | Practical Python development exercises |
 
 ---
