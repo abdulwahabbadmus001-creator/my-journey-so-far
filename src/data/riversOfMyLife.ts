@@ -36,6 +36,8 @@ export const riverChapters: RiverChapter[] = [
     period: '2021 · JAMB & WAEC',
     body: [
       'Sometimes the direction of a life changes because somebody says one thing at the right moment. For me, one of those people was my brother.',
+      'That push was not an isolated moment. My brother has remained one of the strongest forces behind my progress. He has supported me academically, financially and personally, and when my interests began moving towards artificial intelligence and technology, he was the one encouraging me to go deeper, facilitating courses, supporting applications and reminding me not to stop at curiosity.',
+      'His support has never been limited to me. I have watched him invest in my brothers and sisters and carry responsibilities for our family with a consistency I do not take for granted. To me, he has been more than a brother: a supporter, motivator, inspirer and one of the people whose belief has repeatedly helped me move forward.',
       'In 2021, he encouraged me to obtain the JAMB form. It may sound ordinary when written now, but it did not feel ordinary then. It represented possibility.',
       'Perhaps there was still somewhere for me to go. Perhaps education was not finished with me. Perhaps I was not finished either.',
       'That same year, I sat for WAEC. But my reality was different from the picture people normally imagine when they talk about preparing for major examinations. I did not have the luxury of spending all my time with textbooks, revision schedules and endless practice questions.',
@@ -84,7 +86,7 @@ export const riverChapters: RiverChapter[] = [
     title: 'The People the River Brought',
     period: 'Campus life · Friendship · Love',
     body: [
-      'Campus life was beautiful largely because of the people I met along the way. Bro Caleb, Sarah, Atoke, Eleniyan, Jeff, Sirtee, Musa, Horly, Nana and many others became part of that chapter.',
+      'Campus life was beautiful largely because of the people I met along the way. Bro Caleb, Sarah, Atoke, Eleniyan, Jeff, Sirtee, Musa, Horly, Nana, Blessing, Lizzy, Damilare, Ozil, Lekan and many others became part of that chapter.',
       'Some people enter your life for years. Some for a season. Some through classrooms, friendships, arguments, laughter, assignments or random encounters. You rarely know immediately which memories will remain with you.',
       'Then there was Mojisola. Our story still makes me laugh. We began relating like brother and sister. Somehow, somewhere along the line, brother and sister became lovers. Life has a sense of humour.',
       'She became one of the people woven deeply into my university memories and into the wider story of who I was becoming.',
@@ -113,6 +115,7 @@ export const riverChapters: RiverChapter[] = [
       'One memory made that day especially important to me. My childhood friend, Quwam, travelled all the way from Osun State just to celebrate with me.',
       'There is something powerful about being celebrated by someone who knew you long before the certificates, projects, research interests and ambitions — someone who remembers earlier versions of you.',
       'His presence made the day more than a university tradition. It became a reminder that some friendships travel with you across different versions of your life.',
+      'And Quwam is only one part of a much older circle. I remain deeply grateful for the childhood friends who knew me before university, research, technology, fellowships or any of the things I now build. Quwam — my G — Bankole Qudus, Aremu, Jolaosho Samson, Ekunsunmi Muiz, Shoremilekun Monsurat, Tosin, Muhammed, Adio, Shittu Bashir, Demola and many others: thank you for the friendship, memories, laughter, support and history we share. Life has carried us in different directions, but you remain part of the river that shaped me.',
       'I signed out with happiness, relief, memories and perhaps a quiet sense of disbelief at how far the river had already carried me. But the celebration was not over yet. There was still graduation.',
     ],
   },

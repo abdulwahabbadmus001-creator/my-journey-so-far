@@ -165,22 +165,20 @@ The story is intentionally unfinished.
 
 The project does not treat photographs as a conventional gallery.
 
-Selected images are organised into small editorial stories with titles, captions, context, and supporting photographs.
+Selected images are organised into editorial stories with titles, captions, context and supporting photographs. The current archive includes:
 
-Examples include:
+- **Before Any of This** — an early childhood photograph and a reminder that becoming begins before we can name it.
+- **The Brother Behind the Push** — a personal tribute to the brother whose support has shaped my education, technology journey and wider family story.
+- **Ilorin - Where Research Found Me** — my undergraduate field research journey, including the completed and bound final-year project.
+- **Final Year Brethren** — friendships and shared moments from my undergraduate final year.
+- **The Gown Was Never Just the Gown** — graduation, persistence and the people who showed up.
+- **Learning How the Machine Thinks** — CS50 and Python learning moments.
+- **From Learning to Building** — moving from programming exercises into digital products.
+- **Abuja - New Rooms, New People** — the Heinrich Böll Stiftung Nigeria Green Academy experience, certificate presentation, farm tour, mentorship and the people who shaped the programme.
+- **A Very Short Chess Career** — losing 2-0 to Mr. Ismail after learning chess from Mr. Wisdom.
+- **Going Home, Not Going Back** — returning to Lagos after Abuja with new lessons, relationships and perspective.
 
-- **Before Any of This** — an early childhood photograph
-- **Ilorin - Where Research Found Me** — my undergraduate research field trip
-- **The Gown Was Never Just the Gown** — graduation and the people who showed up
-- **Learning How the Machine Thinks** — CS50 and Python learning moments
-- **From Learning to Building** — moving from coding exercises into digital products
-- **Abuja - New Rooms, New People** — the Heinrich Böll Stiftung Nigeria Green Academy experience
-- **A Very Short Chess Career** — losing 2–0 to Mr. Ismail after learning chess from Mr. Wisdom
-- **Going Home, Not Going Back** — the journey back to Lagos after Abuja
-
-The purpose is not to show every photograph I have.
-
-It is to preserve the ones that help tell the story.
+The purpose is not to show every photograph I have. It is to preserve the ones that help tell the story.
 
 ---
 
@@ -188,38 +186,39 @@ It is to preserve the ones that help tell the story.
 
 | Feature | Purpose |
 |---|---|
-| 🎈 **Birthday Hero** | Editorial birthday introduction with subtle celebratory motion |
-| 💌 **Birthday Wishes** | Visitors can submit moderated birthday messages |
-| 📸 **Moments Behind the Journey** | Curated photo essays with context and storytelling |
-| 🤍 **Gratitude Wall** | Appreciation for family, friends, mentors, collaborators, and others |
-| 🛤️ **My Journey** | Connects my background in History, research, technology, and AI |
-| 💻 **Things I Built** | Showcases completed and in-progress digital products |
-| 🌊 **The Rivers Of My Life** | Long-form interactive memoir |
+| 🎈 **Date-Aware Birthday Experience** | Shows a pre-birthday countdown, unlocks the full October 30 experience automatically, and remains available afterward as an archive |
+| 💌 **Birthday Wishes** | Visitors can submit birthday messages that are moderated before publication |
+| 📸 **Moments Behind the Journey** | Curated editorial photo stories covering childhood, research, friendships, graduation, learning, building, family support and fellowship experiences |
+| 🤍 **Gratitude Wall** | A dedicated space for acknowledging family, friends, mentors, collaborators and people who shaped the journey |
+| 🛤️ **My Journey** | Connects History & Diplomacy, research, technology, software building and AI & Africa |
+| 💻 **Things I Built** | Shows shipped products and active projects, including live links for completed public products |
+| 🌊 **The Rivers Of My Life** | A 17-chapter autobiographical memoir about education, survival, friendship, research, technology, family support and becoming |
 | ❤️ **Reader Reactions** | Lightweight emotional responses to the memoir |
-| 💭 **Reader Reflections** | Moderated written responses from readers |
+| 💭 **Reader Reflections** | Moderated written reflections from readers |
 | ✍️ **Guestbook** | Public visitor messages with moderation |
 | 🎁 **Birthday Gift** | Optional birthday gifting section |
 | ⏳ **Time Capsule** | Private messages intended for a future October 30 |
-| 🚀 **Build Something With Me** | Project enquiry / client conversion flow |
-| 🔐 **Admin Dashboard** | Private moderation and content-management interface |
-| 📱 **Responsive Experience** | Desktop and mobile layouts with scrollable story readers |
+| 🚀 **Build Something With Me** | Project enquiry and client-conversion flow |
+| 🔐 **Admin Dashboard** | Private Firebase-authenticated moderation and content-management interface |
+| 📱 **Responsive Experience** | Tested on a physical mobile device with mobile-friendly story readers, forms and navigation |
+| ☁️ **Production Deployment** | GitHub-connected Netlify deployment with Firebase services and published security rules |
 
 ---
 
 ## Things I Built
 
-The site also contains a compact record of products I have built or continue to develop.
+The site contains a compact record of products I have built or continue to develop.
 
 ### Built & Shipped
 
 | Product | Goal / Focus | Live |
 |---|---|---|
-| **Decidr** | Structured decision-making | — |
-| **ForeTrend** | Weather-focused digital experience | — |
-| **EduPath** | Examination preparation and learning | — |
-| **FocusMate** | Productivity and focus sessions | — |
-| **Moji's Heritage** | Makes Nigerian histories, traditions, festivals, languages, foods, people and heritage destinations easier to discover, learn from and explore through a digital cultural-heritage platform. | [Live site](https://mojis-heritage-47e78.web.app/) |
-| **OjaFlow MVP v1.1** | Gives Nigerian traders and small businesses one practical workspace for sales, stock, expenses, debts, customers, invoices, receipts and AI-assisted business insight. | [Live app](https://ojaflow.netlify.app/) |
+| **Decidr** | Structured decision-making through weighted criteria, scoring and clearer comparison of options | — |
+| **ForeTrend** | Weather intelligence and planning using multiple forecast models | — |
+| **EduPath** | Examination preparation and targeted learning for WAEC, JAMB, NECO and POST-UTME | — |
+| **FocusMate** | Productivity, focus sessions, presets, ambient sound and progress tracking | — |
+| **Moji's Heritage** | Makes Nigerian histories, traditions, festivals, languages, foods, people and heritage destinations easier to discover, learn from and explore through a digital cultural-heritage platform | [Live site](https://mojis-heritage-47e78.web.app/) |
+| **OjaFlow MVP v1.1** | Gives Nigerian traders and small businesses one practical workspace for sales, stock, expenses, debts, customers, invoices, receipts and AI-assisted business insight | [Live app](https://ojaflow.netlify.app/) |
 
 ### In Active Development
 
@@ -229,6 +228,8 @@ The site also contains a compact record of products I have built or continue to 
 | **LinguaNaija** | Nigerian multilingual language technology |
 | **NextStep** | Career matching and opportunity discovery |
 | **20 Modern Mini-Python Projects** | Practical Python development exercises |
+
+The portfolio is intentionally transparent about what is shipped and what is still under development.
 
 ---
 
@@ -434,10 +435,12 @@ The project is deployed through **Netlify** from this GitHub repository.
 
 - [x] Pre-birthday countdown experience
 - [x] Editorial birthday interface
-- [x] Curated photo stories
+- [x] Curated photo stories and expanded journey archive
+- [x] Brother appreciation story and memoir acknowledgement
+- [x] Childhood and undergraduate friendship acknowledgements
 - [x] Gratitude Wall
 - [x] My Journey
-- [x] Product showcase
+- [x] Product showcase with live shipped-product links
 - [x] The Rivers Of My Life
 - [x] Reader reaction interface
 - [x] Reader reflection interface
@@ -446,16 +449,17 @@ The project is deployed through **Netlify** from this GitHub repository.
 - [x] Time Capsule
 - [x] Project enquiry flow
 - [x] Private Admin Dashboard
-- [x] Mobile-responsive photo stories
+- [x] Mobile-responsive photo stories and memoir reader
 - [x] Production build validation
-
-### Final Production Tasks
-
-- [x] Publish final Firestore security rules
-- [x] Add production environment variables to Netlify
-- [x] Deploy to Netlify
-- [x] Add the live URL above
 - [x] Final test on a physical mobile device
+- [x] Firestore security rules published
+- [x] Production environment variables configured
+- [x] Netlify deployment connected to GitHub
+- [x] Live production URL added
+
+### Current Production Release
+
+The current release is the completed **October Chapter 2026** experience. Future changes should be treated as maintenance, content additions or post-release improvements rather than unfinished launch requirements.
 
 ---
 
