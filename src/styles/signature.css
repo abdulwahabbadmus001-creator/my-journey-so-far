@@ -1046,6 +1046,22 @@
   background: transparent;
 }
 
+
+.chapter-shell .project-live-link {
+  width: max-content;
+  color: #6f513d;
+  font-size: 0.56rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(111, 81, 61, 0.28);
+}
+
+.chapter-shell .project-live-link:hover {
+  color: #2f241d;
+  border-bottom-color: currentColor;
+}
+
 /* --------------------------------------------------------------------------
    07 - GUESTBOOK
    -------------------------------------------------------------------------- */
